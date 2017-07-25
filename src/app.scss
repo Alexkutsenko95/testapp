@@ -1,0 +1,14 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+$primary: #428bca;
+$secondary: #ffffff;
+
+.line {
+  fill: none;
+  stroke: $primary;
+  stroke-width: 1.5px;
+}
+
+.baseline {
+  stroke-dasharray: 4, 4;
+}
