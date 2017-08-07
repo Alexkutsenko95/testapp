@@ -5,9 +5,8 @@ import { connect } from 'react-redux';
 import { isEqual } from 'lodash';
 import 'react-date-picker/index.css'
 import { DateField, Calendar } from 'react-date-picker'
-const onChange = (dateString, { dateMoment, timestamp }) => {
-    console.log(dateString)
-}
+
+import RaisedButton from 'material-ui/RaisedButton';
 
 
 @connect(
@@ -34,11 +33,11 @@ export class PostsEdit extends React.Component {
     this.state = {
       ...this.state,
       postId: this.props.params.postId,
-          category_id: this.props.params.category_id,
-        amount: this.props.params.amount,
+        authors: this.props.params.authors,
+        title: this.props.params.title,
 
         date: this.props.params.date,
-      post: {title: '', body: ''}
+      post: {authors: '', title: '',date:'' }
     };
   }
 
@@ -67,45 +66,43 @@ export class PostsEdit extends React.Component {
     }
   }
 
+   onChange (field, dateString){
+    console.log(dateString)
+       const post = Object.assign({}, this.state.post, {[field]: dateString});
+       this.setState(Object.assign({}, this.state, {post}));
+}
+
   render() {
 
-      let date = '2017-04-24'
+      // let date = '2017-04-24'
   console.log((this.props.params.postId))
     return (
       <form onSubmit={this.handleSubmit.bind(this)} noValidate>
         <div className="form-group">
-          <label className="label-control">Amount</label>
+          <label className="label-control">Author</label>
           <input
               type="text"
               className="form-control"
-              value={this.state.post.amount}
-              onChange={this.handleChange.bind(this, 'category_id')} />
+              value={this.state.post.authors}
+              onChange={this.handleChange.bind(this, 'authors')} />
         </div>
         <div className="form-group">
-          <label className="label-control">Description</label>
+          <label className="label-control">Title</label>
           <input
             type="text"
             className="form-control"
-            value={this.state.post.description}
+            value={this.state.post.title}
             onChange={this.handleChange.bind(this, 'title')} />
         </div>
         <Calendar
             dateFormat="YYYY-MM-DD"
-            date={date}
-            onChange={onChange}
+            date={this.state.post.date}
+            onChange={this.onChange.bind(this, 'date')}
         />
-      <div className="form-group">
-          <label className="label-control">Category id</label>
-          <input
-      type="text"
-      className="form-control"
-      value={this.state.post.category_id}
-      onChange={this.handleChange.bind(this, 'category_id')} />
-      </div>
+        <br/>
+        <br/>
+        <RaisedButton type="submit" label="Post" primary={true}  />
 
-        <button type="submit" className="btn btn-default">
-          {this.state.postId ? 'Update' : 'Create' } Post
-        </button>
       </form>
     );
   }

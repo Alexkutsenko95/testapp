@@ -5,6 +5,8 @@ import { Link } from 'react-router';
 import { PostsList } from '../components/posts/PostsList';
 import { SearchInput } from '../components/shared/SearchInput';
 import { postsActions, postsSelectors } from '../store/posts/index';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 @connect(
   (state) => {
@@ -57,11 +59,12 @@ export class PostsIndex extends React.Component {
             <SearchInput
               value={params.q}
               onSearch={this.handleSearch}
-              placeholder="Description search ..."
+              placeholder="Search ..."
             />
           </div>
           <div className="col-md-6 text-right">
-            <Link to="/posts/new" className="btn btn-primary">New payment</Link>
+
+            <Link to="/posts/new" ><RaisedButton type="submit" label="New book" primary={true}  /></Link>
           </div>
         </div>
         {posts.length > 0 &&

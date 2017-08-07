@@ -6,13 +6,11 @@ export const PostsList = ({posts, onDelete}) => {
     <table className="table table-hover">
       <thead>
       <tr>
-        <th>Id</th>
-          <th>Amount</th>
-          <th>Description</th>
-          <th>Category</th>
+          <th>Id</th>
+          <th>Author</th>
+          <th>Title</th>
           <th>Date</th>
-          <th>Type</th>
-      </tr>
+         </tr>
       </thead>
       <tbody>
       {posts.map(post => PostsListRow({post, onDelete}))}

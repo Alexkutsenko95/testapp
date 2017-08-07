@@ -5,8 +5,10 @@ var categoryBody = {
 };
 
 var postBody = {
-  title: Joi.string().min(3).max(80).required(),
-  body: Joi.string().required()
+    authors_id: Joi.number().min(1).max(80).required(),
+    title: Joi.string().min(3).max(80).required(),
+    authors: Joi.string().min(3).max(80).required(),
+    date: Joi.date().required(),
 };
 
 module.exports = {

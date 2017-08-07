@@ -34,11 +34,12 @@ app.put('/categories/:id', validate(validations.category), function(req, res, ne
   next();
 });
 
-app.post('/posts', validate(validations.post), function(req, res, next){
+// , validate(validations.post)
+app.post('/posts', function(req, res, next){
   next();
 });
-
-app.put('/posts/:id', validate(validations.post), function(req, res, next){
+// , validate(validations.post)
+app.put('/posts/:id', function(req, res, next){
   next();
 });
 

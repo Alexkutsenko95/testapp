@@ -3,15 +3,15 @@ var _ = require('lodash');
 
 module.exports = function() {
   var data = {
-    categories: [],
+    authors: [],
     posts: [],
   };
 
   // Create categories
   for (var i = 1; i <= 3; i++) {
-    data.categories.push({
+    data.authors.push({
       id: i,
-      name: faker.random.arrayElement(["Education","Meal","Clothing","Travel"])
+      name: faker.random.arrayElement(["Stephen King","Marc Levy","Bella Forrest","James Patterson"])
     });
   }
 
@@ -19,12 +19,12 @@ module.exports = function() {
   for (var i = 1; i <= 5; i++) {
     data.posts.push({
       id: i,
-      category_id: _.shuffle(data.categories)[0].id,
-        category: _.shuffle(data.categories)[0].name,
-        amount: faker.random.number({min:200, max:1000}),
+        authors_id: _.shuffle(data.authors)[0].id,
+        authors: _.shuffle(data.authors)[0].name,
+        // amount: faker.random.number({min:200, max:1000}),
         date: faker.date.between('2017-05-01', '2017-09-31'),
-      description: faker.lorem.sentence().slice(0,-1),
-      type: faker.random.arrayElement(["income","outcome"]) //returns "two"
+      title: faker.lorem.sentence().slice(0,-1),
+      // type: faker.random.arrayElement(["income","outcome"]) //returns "two"
 
   });
   }

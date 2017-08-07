@@ -7,7 +7,6 @@ import thunk from 'redux-thunk';
 import rootReducer from './store/reducers';
 import rootEpic from './store/epics';
 
-const logger = createLogger({collapsed: true});
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
@@ -18,7 +17,6 @@ export default createStore(
   composeEnhancers(
     applyMiddleware(
       epicMiddleware,
-      logger,
       routerMiddleware(hashHistory),
       thunk,
     )
