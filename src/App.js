@@ -24,27 +24,7 @@ let App = ({children}) => {
   return (
       <MuiThemeProvider>
     <div>
-      {/*<Navbar>*/}
-        {/*<Nav>*/}
-          {/*<IndexLinkContainer to="/posts">*/}
-            {/*<NavItem>Books</NavItem>*/}
-          {/*</IndexLinkContainer>*/}
-          {/*/!*<LinkContainer to="/posts">*!/*/}
-            {/*/!*<NavItem>Payments</NavItem>*!/*/}
-          {/*/!*</LinkContainer>*!/*/}
-          {/*/!*<LinkContainer to="/categories">*!/*/}
-            {/*/!*<NavItem>Categories</NavItem>*!/*/}
-          {/*/!*</LinkContainer>*!/*/}
-        {/*</Nav>*/}
-        {/*{Auth.authenticated() && <Nav className="pull-right">*/}
-          {/*<NavItem onClick={Auth.logout.bind(this)}>Logout</NavItem>*/}
-        {/*</Nav>}*/}
-        {/*{!Auth.authenticated() && <Nav className="pull-right">*/}
-          {/*<LinkContainer to="/login">*/}
-            {/*<NavItem>Login</NavItem>*/}
-          {/*</LinkContainer>*/}
-        {/*</Nav>}*/}
-      {/*</Navbar>*/}
+
       <AppBar
           title={<Link to={'/posts'} style={{color:"#FFF", top:10}}>Books</Link>}
 
