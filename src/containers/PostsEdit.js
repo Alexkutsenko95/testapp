@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import { isEqual } from 'lodash';
 import 'react-date-picker/index.css'
 import { DateField, Calendar } from 'react-date-picker'
-
 import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 
 
 @connect(
@@ -16,6 +16,7 @@ import RaisedButton from 'material-ui/RaisedButton';
     };
   }
 )
+
 export class PostsEdit extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object,
@@ -72,19 +73,19 @@ export class PostsEdit extends React.Component {
        this.setState(Object.assign({}, this.state, {post}));
 }
 
+
   render() {
 
-      // let date = '2017-04-24'
-  console.log((this.props.params.postId))
     return (
-      <form onSubmit={this.handleSubmit.bind(this)} noValidate>
+      <form onSubmit={this.handleSubmit.bind(this)}>
         <div className="form-group">
           <label className="label-control">Author</label>
           <input
               type="text"
               className="form-control"
               value={this.state.post.authors}
-              onChange={this.handleChange.bind(this, 'authors')} />
+              onChange={this.handleChange.bind(this, 'authors')}
+              required/>
         </div>
         <div className="form-group">
           <label className="label-control">Title</label>
@@ -92,16 +93,18 @@ export class PostsEdit extends React.Component {
             type="text"
             className="form-control"
             value={this.state.post.title}
-            onChange={this.handleChange.bind(this, 'title')} />
+            onChange={this.handleChange.bind(this, 'title')}
+            required/>
         </div>
         <Calendar
             dateFormat="YYYY-MM-DD"
             date={this.state.post.date}
             onChange={this.onChange.bind(this, 'date')}
+            required
         />
         <br/>
         <br/>
-        <RaisedButton type="submit" label="Post" primary={true}  />
+        <RaisedButton  type="submit" label="Post" primary={true}  />
 
       </form>
     );
